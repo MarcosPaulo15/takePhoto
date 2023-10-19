@@ -76,7 +76,7 @@ Html {
 
 
 <div id="cont">
-  <a href="index.html">< VOLVER </a>
+  <a href="pageInicial.html">< VOLVER </a>
 </div>
 <?php
 include('static/config.php');
@@ -96,7 +96,7 @@ $queryGroomers = mysqli_query($con, $sqlGroomers);
         </div>
       <?php }else{ ?>
         <div class="section__masonry-wrapper__item">
-          <img src="files/fotos/<?php echo $dataProduct['nameFile']; ?>" alt="foto" class="section__masonry-wrapper__item-img">
+          <img src="files/fotos/<?php echo $_SESSION['cpf']; ?>" alt="foto" class="section__masonry-wrapper__item-img">
         </div>
       <?php }  } ?>
     

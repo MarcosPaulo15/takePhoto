@@ -266,5 +266,8 @@ img{
         height: 300px;
         /*border: 2px solid crimson;*/
     }
+    .textInput{
+        width: 100px;
+    }
 }
 

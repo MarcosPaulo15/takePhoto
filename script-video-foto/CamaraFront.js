@@ -150,7 +150,7 @@ const llenarSelectConDispositivosDisponibles = () => {
 
                     $canvas.width = $video.videoWidth;
                     $canvas.height = $video.videoHeight;
-                    contexto.drawImage($video, 0, 0, $canvas.width, $canvas.height);
+                    contexto.drawImage($video, 0, 0, 350, 350);
 
                     let foto = $canvas.toDataURL(); //Esta es la foto, en base 64
                     $("#boton").hide(); //Ocultando boton detomar foto
@@ -173,9 +173,9 @@ const llenarSelectConDispositivosDisponibles = () => {
                             stream.stop;
                             video.pause();
                             $("#video").hide();
-                           alert('la foto fue tomada y guardada');
+                           alert('Foto registrada com sucesso!');
                            $estado.innerHTML = `<p id='msjFinal' style='margin: 5px !important; text-align: center;color: #ff685f;font-weight: 600;width: 100%;margin: 0 auto;padding: 15px 25px;font-size: 15px;background-color: #fff;'>Foto tomada con éxito.`;
-                           window.location.href ='list-foto-video.php';
+                           window.location.href ='Finish.php';
                         //$estado.innerHTML = `<p style='text-align: center;color: #ff685f;font-weight: 600;width: 90%;margin: 0 auto;padding: 10px 15px;font-size: 15px;background-color: #fff;'>Foto guardada con éxito, <a target='_blank' href='enviarFile.php?foto=${nombreDeLaFoto}'>enviar foto al correo</a></p>`;
          
                         setTimeout(function(){

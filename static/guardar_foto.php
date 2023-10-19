@@ -2,6 +2,9 @@
 require("config.php");
 date_default_timezone_set("America/Bogota");
 $dateFile   = date('d-m-Y H:i:s A', time()); 
+if(!isset($_SESSION)){
+    session_start();
+  }
 
 
 $imagenCodificada = file_get_contents("php://input"); //Obtener la imagen
@@ -14,14 +17,15 @@ $imagenCodificadaLimpia = str_replace("data:image/png;base64,", "", urldecode($i
 $imagenDecodificada = base64_decode($imagenCodificadaLimpia);
 
 //Calcular un nombre único
-$nombreFoto = uniqid() . ".png";
-$nombreImagenGuardada = "../files/fotos/" .$nombreFoto;
+$name = $_SESSION['cpf'];
+$nombreFoto = $_SESSION['cpf']. ".png";
+$nombreImagenGuardada = "C:/Users/Administrador/OneDrive/fotos/" .$nombreFoto;
 
 
 //Escribir el archivo
 //file_put_contents($nombreImagenGuardada, $imagenDecodificada);
 if(file_put_contents($nombreImagenGuardada, $imagenDecodificada) ==TRUE){
-    $queryInsert  = ("INSERT INTO archivos(nameFile, dateFile) VALUES ('$nombreFoto','$dateFile')");
+    $queryInsert  = ("INSERT INTO archivos(nameFile, dateFile) VALUES ('$name','$dateFile')");
     $resultInsert = mysqli_query($con, $queryInsert);
 }
 
